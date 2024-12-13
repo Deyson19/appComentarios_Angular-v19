@@ -4,6 +4,15 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@Interfaces/*": ["./src/app/core/interfaces/*"],
+      "@Services/*": ["./src/app/core/services/*"],
+      "@ViewModels/*": ["./src/app/core/viewModels/*"],
+      "@Helpers/*": ["./src/app/core/helpers/*"],
+      "@Shared/*": ["./src/app/shared/*"],
+      "@Components/*": ["./src/app/components/*"],
+      "@Pages/*": ["./src/app/pages/*"]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
