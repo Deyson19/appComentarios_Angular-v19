@@ -1,0 +1,47 @@
+<div class="card shadow-lg border-2 m-2">
+  @if (!isDetails()) {
+  <img
+    class="card-img-top img-thumbnail w-100"
+    loading="eager"
+    [src]="publicacion().imagen"
+    alt="Post"
+    style="object-fit: cover; height: 150px"
+  />
+  }
+
+  <div class="card-body">
+    <h4 class="card-title font-bold">
+      {{ publicacion().categoria }}
+    </h4>
+    <p class="card-text">
+      {{ publicacion().contenido }}
+    </p>
+    <hr />
+    <p class="card-text">
+      <small class="text-muted">{{
+        publicacion().fechaPublicacion | date
+      }}</small>
+    </p>
+  </div>
+  <div
+    class="card-footer bg-info d-flex justify-content-between align-items-center"
+  >
+    <div>Autor: {{ publicacion().autor }}</div>
+    <div>
+      Comentarios: {{ publicacion().comentarios?.length }}
+      <i class="bi bi-chat-quote"></i>
+    </div>
+  </div>
+  @if (!isDetails()) {
+  <div class="d-grid d-flex justify-content-center p-2">
+    <button
+      type="button"
+      class="btn btn-sm btn-primary"
+      [routerLink]="['/publicaciones', publicacion().id]"
+    >
+      Ver Detalles
+      <i class="bi bi-eye"></i>
+    </button>
+  </div>
+  }
+</div>
