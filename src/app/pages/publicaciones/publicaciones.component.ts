@@ -1,9 +1,8 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { PublicacionService } from '../../core/services';
-import { IPublicacion } from '../../core/interfaces';
 import { ToastrService } from 'ngx-toastr';
-import { PublicacionCardComponent } from '../../components/publicacion-card/publicacion-card.component';
-import { SpinnerComponent } from '../../components/spinner/spinner.component';
+import { PublicacionCardComponent, SpinnerComponent } from '@Components/index';
+import { IPublicacion } from '@Interfaces/index';
+import { PublicacionService } from '@Services/index';
 
 @Component({
   imports: [PublicacionCardComponent, SpinnerComponent],
@@ -12,8 +11,8 @@ import { SpinnerComponent } from '../../components/spinner/spinner.component';
 })
 export class PublicacionesComponent implements OnInit, OnDestroy {
   private readonly _publicacionService = inject(PublicacionService);
-  public publicaciones: IPublicacion[] = [];
   private readonly toast = inject(ToastrService);
+  public publicaciones: IPublicacion[] = [];
   ngOnInit(): void {
     this.getPublicaciones();
   }
