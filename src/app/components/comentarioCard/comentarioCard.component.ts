@@ -7,10 +7,10 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { ComentarioService } from '../../core/services';
-import { IComentario } from '../../core/interfaces';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ComentarioService } from '@Services/index';
+import { IComentario } from '@Interfaces/index';
 
 @Component({
   selector: 'app-comentario-card',
