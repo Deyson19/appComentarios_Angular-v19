@@ -1,0 +1,15 @@
+<div class="container container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-0 border" style="background-color: #1bc7c7">
+        <div class="card-body p-4">
+          @for (comentario of comments; track $index) {
+          <app-favorito-item [comentario]="comentario" />
+          }@empty {
+          <p class="text-center card-text">No hay registros para mostrar</p>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
