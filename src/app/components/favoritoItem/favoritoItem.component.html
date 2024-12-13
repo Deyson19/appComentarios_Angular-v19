@@ -1,0 +1,35 @@
+<div class="card mb-4">
+  <div class="card-body">
+    <button
+      class="btn btn-sm btn-danger float-end"
+      (click)="deleteComment(comentario().id)"
+    >
+      <i class="fas fa-trash-alt"></i>
+    </button>
+    <p>
+      {{ comentario().texto }}
+    </p>
+
+    <div class="d-flex justify-content-between">
+      <div class="d-flex flex-row align-items-center">
+        <img
+          [src]="getAvatar()"
+          alt="avatar"
+          class="rounded-circle"
+          width="50"
+          height="50"
+        />
+        <p class="small mb-0 ms-2">
+          <strong>
+            {{ comentario().nombrePersona }}
+          </strong>
+        </p>
+      </div>
+      <div class="d-flex flex-row align-items-center">
+        <p class="small text-muted mb-0">
+          Fecha: {{ comentario().fechaPublicacion | date : "dd/MM/yyyy" }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
