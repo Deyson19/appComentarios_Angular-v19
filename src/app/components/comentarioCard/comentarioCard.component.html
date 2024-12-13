@@ -1,0 +1,51 @@
+<div class="card mb-3 border-0 rounded shadow-sm" style="border-radius: 15px">
+  <div class="card-body">
+    <p class="card-text" style="font-style: italic">
+      {{ comentario().texto }}
+    </p>
+    <p class="card-text">
+      <small class="text-muted"
+        >Categoría:
+        <strong>
+          {{ comentario().publicacion?.categoria }}
+        </strong></small
+      >
+    </p>
+    <p class="card-text">
+      <small class="text-muted"
+        >Autor:
+        <strong>
+          {{ comentario().publicacion?.autor }}
+        </strong></small
+      >
+    </p>
+    <p class="card-text">
+      <small class="text-muted"
+        >Fecha del Comentario:
+        <strong>
+          {{ comentario().fechaPublicacion | date }}
+        </strong></small
+      >
+    </p>
+  </div>
+  <div
+    class="card-footer text-muted d-flex justify-content-between align-items-center"
+    style="
+      background-color: #f8f9fa;
+      border-top: none;
+      border-radius: 0 0 15px 15px;
+    "
+  >
+    Por:
+    <strong>
+      {{ comentario().nombrePersona }}
+    </strong>
+    <a
+      [routerLink]="['/comentarios', comentario().id]"
+      class="btn btn-sm btn-info"
+    >
+      Ver
+      <i class="bi bi-eye-fill"></i>
+    </a>
+  </div>
+</div>
