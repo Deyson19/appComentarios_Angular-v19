@@ -1,0 +1,14 @@
+<h2 class="text-info text-uppercase text-bold text-center shadow-sm">
+  Vista de Comentarios Realizados
+</h2>
+<p class="card-text text-center">
+  Total de Comentarios: {{ totalComentarios() }}
+</p>
+
+<div class="row">
+  @for (comentario of comentarios(); track comentario.id) {
+  <div class="col-3 shadow-ld border-2">
+    <app-comentario-card [comentario]="comentario" />
+  </div>
+  }
+</div>
