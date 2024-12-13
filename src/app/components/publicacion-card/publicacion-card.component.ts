@@ -7,9 +7,8 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IPublicacion } from '../../core/interfaces';
-import { ImageHelper } from '../../core/helpers/ImageHelper';
-
+import { ImageHelper } from '@Helpers/ImageHelper';
+import { IPublicacion } from '@Interfaces/index';
 @Component({
   selector: 'app-publicacion-card',
   imports: [RouterLink, CommonModule],
@@ -20,7 +19,7 @@ export class PublicacionCardComponent implements OnChanges {
   public publicacion = input.required<IPublicacion>();
   public isDetails = input<boolean>(false);
   ngOnChanges(changes: SimpleChanges): void {
-    let post = changes as unknown as IPublicacion;
+    const post = changes as unknown as IPublicacion;
     if (post) {
       const getImage = ImageHelper.getImages();
       this.publicacion().imagen = getImage;
