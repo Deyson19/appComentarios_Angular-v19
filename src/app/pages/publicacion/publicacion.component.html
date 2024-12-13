@@ -35,8 +35,11 @@
   <hr />
   <div class="row">
     @for (comentario of publicacion()?.comentarios; track comentario.id) {
-    <div class="col shadow-lg bg-transparent border-2 border-secondary m-1">
-      <app-comentario-container [comentario]="comentario" />
+    <div class="col shadow-lg bg-info border-2 border-secondary m-1">
+      <app-comentario-container
+        [publicacion]="publicacion()!"
+        [comentario]="comentario"
+      />
     </div>
     }
   </div>

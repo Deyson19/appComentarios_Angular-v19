@@ -7,17 +7,20 @@ import {
   signal,
   TemplateRef,
 } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { PublicacionCardComponent } from '../../components/publicacion-card/publicacion-card.component';
-import { SpinnerComponent } from '../../components/spinner/spinner.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { PublicacionService } from '../../core/services';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IComentario, IPublicacion } from '../../core/interfaces';
-import { ModalNuevoComentarioComponent } from '../../components/modal-nuevo-comentario/modal-nuevo-comentario.component';
-import { ComentarioContainerComponent } from '../../components/comentario-container/comentario-container.component';
+import { FormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { IPublicacion } from '@Interfaces/index';
+import { PublicacionService } from '@Services/index';
+
+import {
+  ComentarioContainerComponent,
+  ModalNuevoComentarioComponent,
+  PublicacionCardComponent,
+  SpinnerComponent,
+} from '@Components/index';
 @Component({
   selector: 'app-publicacion',
   imports: [
@@ -37,11 +40,10 @@ export class PublicacionComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly activatedRoute = inject(ActivatedRoute);
 
-  //*Usar Modal de Ngbootstrap
+  //*Usar Modal de Ngb Bootstrap
   private readonly modalService = inject(NgbModal);
 
   public publicacion = signal<IPublicacion | null>(null);
-  private favoritos: IComentario[] = [];
 
   //*Propiedades para el formulario
   nombrePersona: string = '';
@@ -54,10 +56,10 @@ export class PublicacionComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
-  openModal(content: TemplateRef<ElementRef>) {
+  openModal(content: TemplateRef<ElementRef>): void {
     this.modalService.open(content);
   }
-  wasSended(close: boolean) {
+  wasSended(close: boolean): void {
     if (!close) {
       this.toast.info('Modal cerrado, no hay cambios...');
     }
