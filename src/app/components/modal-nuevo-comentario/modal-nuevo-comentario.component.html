@@ -1,0 +1,34 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Agregar Nuevo Comentario</h5>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <div class="mb-3">
+        <input
+          class="form-control"
+          type="text"
+          [(ngModel)]="nombrePersona"
+          (ngModelChange)="nombrePersona = $event"
+          placeholder="Nombre de la persona"
+        />
+      </div>
+      <div class="mb-3">
+        <textarea
+          class="form-control"
+          [(ngModel)]="texto"
+          (ngModelChange)="texto = $event"
+          placeholder="Agregar una nueva opinión"
+        ></textarea>
+      </div>
+      <div class="d-flex justify-content-around">
+        <button class="btn btn-info" (click)="onSubmit()">
+          <i class="fas fa-comment"></i> Enviar
+        </button>
+        <button class="btn btn-secondary" (click)="onClose()">
+          <i class="fas fa-times"></i> Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
