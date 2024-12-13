@@ -1,0 +1,44 @@
+<div class="container">
+  <h2 class="text-bold text-success text-center">Detalles de la Publicación</h2>
+
+  <section class="content container-fluid">
+    <div class="row">
+      @defer (on viewport) { @if (publicacion()) {
+      <app-publicacion-card [isDetails]="true" [publicacion]="publicacion()!" />
+      } }@placeholder(minimum 3s) {
+      <app-components-spinner />
+      }
+    </div>
+    <ng-template #content let-modal>
+      <button
+        type="button"
+        class="btn-close btn-danger float-end"
+        aria-label="Close"
+        (click)="modal.dismiss()"
+      ></button>
+      <app-modal-nuevo-comentario
+        [publicacion]="publicacion()!"
+        (onFormSubmitted)="wasSended($event)"
+      />
+    </ng-template>
+
+    <button
+      class="btn btn-primary btn-lg"
+      type="button"
+      (click)="openModal(content)"
+    >
+      Comentar
+      <i class="fas fa-comment"></i>
+    </button>
+  </section>
+
+  <hr />
+  <div class="row">
+    @for (comentario of publicacion()?.comentarios; track comentario.id) {
+    <div class="col shadow-lg bg-transparent border-2 border-secondary m-1">
+      <app-comentario-container [comentario]="comentario" />
+    </div>
+    }
+  </div>
+</div>
+<hr />
