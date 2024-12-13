@@ -7,7 +7,7 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import('./pages/publicaciones/publicaciones.component').then(
+          import('@Pages/publicaciones/publicaciones.component').then(
             (m) => m.PublicacionesComponent
           ),
       },
@@ -15,7 +15,7 @@ export const routes: Routes = [
         path: ':id',
         title: 'Publicación',
         async loadComponent() {
-          return await import('./pages/publicacion/publicacion.component').then(
+          return await import('@Pages/publicacion/publicacion.component').then(
             (m) => m.PublicacionComponent
           );
         },
@@ -29,7 +29,7 @@ export const routes: Routes = [
         path: '',
         async loadComponent() {
           const c = await import(
-            './pages/comentarios/comentarios.component'
+            '@Pages/comentarios/comentarios.component'
           ).then((m) => m.ComentariosComponent);
           return c;
         },
@@ -37,7 +37,7 @@ export const routes: Routes = [
       {
         path: ':id',
         async loadComponent() {
-          return await import('./pages/comentario/comentario.component').then(
+          return await import('@Pages/comentario/comentario.component').then(
             (_) => _.ComentarioComponent
           );
         },
@@ -47,7 +47,7 @@ export const routes: Routes = [
   {
     path: 'favoritos',
     loadComponent: () =>
-      import('./pages/favoritos/favoritos.component').then((m) => m.default),
+      import('@Pages/favoritos/favoritos.component').then((m) => m.default),
   },
   {
     path: '**',
